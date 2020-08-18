@@ -30,6 +30,9 @@
 <!--        <module>xing-springmvc-04-controller</module>-->
 <!--        <module>xing-springmvc-05json</module>-->
 <!--        <module>xing-ssm(整合)</module>-->
+<!--        <module>xing-ajax</module>-->
+<!--        <module>xing-springmvc-06-interceptor拦截器</module>-->
+<!--        <module>xing-ssm(整理)</module>-->
     </modules>
     <!--springmvc-->
     <dependencies>

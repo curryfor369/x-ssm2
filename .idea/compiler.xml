@@ -20,6 +20,7 @@
       <module name="x-mybatis(5.动态SQL)" target="1.8" />
       <module name="x-mybatis(6.练习29)" target="1.8" />
       <module name="x-springmvc-01-servelet" target="1.8" />
+      <module name="xing-ajax" target="1.8" />
       <module name="xing-spirngmvc-02-helloSpringMVC" target="1.8" />
       <module name="xing-spring(01.入门)" target="1.8" />
       <module name="xing-spring(02.依赖注入)" target="1.8" />
@@ -36,7 +37,9 @@
       <module name="xing-springmvc-03-注解开发SpringMVC" target="1.8" />
       <module name="xing-springmvc-04-controller" target="1.8" />
       <module name="xing-springmvc-05json" target="1.8" />
+      <module name="xing-springmvc-06-interceptor拦截器" target="1.8" />
       <module name="xing-ssm(整合)" target="1.8" />
+      <module name="xing-ssm(整理)" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -1,0 +1,50 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        https://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd">
+    <!--    1. 扫描service下的包-->
+    <context:component-scan base-package="com.xing.service" />
+    <!--    2. 将所有业务类,注册到Spriing-->
+    <bean id="booksServiceImpl" class="com.xing.service.BooksServiceImpl">
+        <!-- 注入属性-->
+        <property name="booksMapper" ref="booksMapper" />
+    </bean>
+    <!--    3. 声明式事务配置
+               1. 注册事务对象
+               2. 配置事务通知
+               3. 配置AOP，将事务通知作为aop通知
+    -->
+    <!--    注册事务对象-->
+    <bean id="transactionManager"
+        class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <!--    配置事务通知-->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <!--  配置那些方法使用什么样的事务-->
+            <tx:method name="query" read-only="true" />
+            <tx:method name="*" propagation="REQUIRED" />
+        </tx:attributes>
+    </tx:advice>
+
+    <!--    配置aop-->
+    <aop:config>
+        <aop:pointcut id="pointcut"
+            expression="execution(* com.xing.mapper..*(..))" />
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="pointcut" />
+    </aop:config>
+</beans>
