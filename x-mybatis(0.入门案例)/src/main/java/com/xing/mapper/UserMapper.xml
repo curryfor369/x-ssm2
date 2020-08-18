@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?><!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd"><!--每个mapper的namespace对应一个Mapper接口-->
+<mapper namespace="com.xing.mapper.UserMapper">
+
+    <!-- 查询所有
+            id对应Mapper接口的方法
+            resultType对应返回值类型
+    -->
+    <select id="getUserList" resultType="user">
+        select * from mybatis.user
+    </select>
+
+    <!-- 查一个-->
+    <select id="getOneById" resultType="com.xing.pojo.User" parameterType="int">
+        select * from mybatis.user where id = #{id}
+    </select>
+
+    <!--插入一个-->
+    <insert id="insertOne" parameterType="com.xing.pojo.User">
+        insert into mybatis.user(id,name,age) values(null,#{name},#{age})
+    </insert>
+
+    <!--删除一个 根据Id-->
+    <delete id="deleteById" parameterType="int">
+        delete from mybatis.user where id = #{id}
+    </delete>
+
+    <!--更新一个 根据Id-->
+    <update id="updateById" parameterType="com.xing.pojo.User">
+        update mybatis.user set name= #{name} , age = #{age} where id = #{id}
+    </update>
+
+    <!-- 增加一个 通过万能map-->
+    <insert id="insertByMap" parameterType="map">
+        insert into mybatis.user(id,name,age) values(null,#{username},#{userage})
+    </insert>
+
+    <!-- 模糊查询-->
+    <select id="getUserListWith" resultType="com.xing.pojo.User">
+        select * from user where name like  "%"  #{name} "%"
+    </select>
+</mapper>

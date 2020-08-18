@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?><!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xing.dao.UserMapper">
+<!--  查询单个用户 selectByCodeAndPassword -->
+    <select id="selectByCodeAndPassword" resultType="User">
+        select * from smbms_user where userCode = #{userCode} and userPassword = #{userPassword}
+    </select>
+
+<!--  根据条件查询所有用户进行分页显示  selectByCondition-->
+    <select id="selectByCondition" resultType="user">
+        select * from smbms_user
+        <where>
+            <if test="userName !=null and userName != ''">
+                userName like "%" #{userName} "%"
+            </if>
+            <if test="userRole !=null and userRole != ''">
+                or userRole = #{userRole}
+            </if>
+
+        </where>
+        limit #{pageNo},#{pageSize}
+    </select>
+<!--    根据条件查询用户总数量 selectCountByCondition-->
+    <select id="selectCountByCondition" resultType="int">
+        select count(*) from smbms_user
+        <where>
+            <if test="userName !=null and userName != ''">
+                userName like "%" #{userName} "%"
+            </if>
+            <if test="userRole !=null and userRole != 0">
+                or userRole = #{userRole}
+            </if>
+        </where>
+    </select>
+<!--    添加用户-->
+    <insert id="insert" parameterType="User">
+        insert into smbms_user values (#{id},#{userCode},#{userName},#{userPassword},#{gender},#{birthday},#{phone},#{address},#{userRole},#{createdBy},#{creationDate},
+        #{modifyBy},#{modifyDate})
+    </insert>
+<!--    //根据id查找用户信息 selectUserById-->
+    <select id="selectUserById" resultType="User" parameterType="int">
+        select * from smbms_user where id = #{id}
+    </select>
+
+<!--   修改用户 -->
+    <update id="updateUser" parameterType="User">
+
+    </update>
+<!--    删除用户-->
+    <delete id="deleteUser" parameterType="int">
+        delete from smbms_user where id = #{id}
+    </delete>
+<!--    修改密码  updatePwd-->
+    <update id="updatePwd">
+        update smbms_user set userPassword = #{pwd} where id = #{id}
+    </update>
+</mapper>

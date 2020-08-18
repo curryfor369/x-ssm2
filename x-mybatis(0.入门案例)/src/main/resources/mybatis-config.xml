@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?><!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 导入文件-->
+    <properties resource="db.properties"></properties>
+
+    <!-- 起别名-->
+    <typeAliases>
+        <package name="com.xing.pojo" />
+    </typeAliases>
+
+    <!-- 环境-->
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC" />
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}" />
+                <property name="url" value="${url}" />
+                <property name="username" value="${username}" />
+                <property name="password" value="${password}" />
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--映射文件-->
+    <mappers>
+        <!--  1. 通过资源路径-->
+        <mapper resource="com/xing/mapper/UserMapper.xml" />
+        <!--  2. 通过类，配置文件必须和类同名同包-->
+        <!--        <mapper class="com.xing.mapper.UserMapper"></mapper>-->
+        <!--  3. 通过包，配置文件必须和类同名同包-->
+        <!--        <package name="com.xing.mapper" />-->
+
+    </mappers>
+</configuration>

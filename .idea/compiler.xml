@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="x-mybatis" target="1.8" />
+      <module name="x-mybatis(0. 入门案例)" target="1.8" />
+      <module name="x-mybatis(0.入门案例)" target="1.8" />
+      <module name="x-mybatis(1.属性设置)" target="1.8" />
+      <module name="x-mybatis(1.属性设置.)" target="1.8" />
+      <module name="x-mybatis(2.注解开发)" target="1.8" />
+      <module name="x-mybatis(2.注解开发.)" target="1.8" />
+      <module name="x-mybatis(3. 复杂查询)" target="1.8" />
+      <module name="x-mybatis(3.复杂查询)" target="1.8" />
+      <module name="x-mybatis(3.复杂查询.)" target="1.8" />
+      <module name="x-mybatis(3.多对一)" target="1.8" />
+      <module name="x-mybatis(4.一对多)" target="1.8" />
+      <module name="x-mybatis(5.动态SQL)" target="1.8" />
+      <module name="x-mybatis(6.练习29)" target="1.8" />
+      <module name="x-springmvc-01-servelet" target="1.8" />
+      <module name="xing-spirngmvc-02-helloSpringMVC" target="1.8" />
+      <module name="xing-spring(01.入门)" target="1.8" />
+      <module name="xing-spring(02.依赖注入)" target="1.8" />
+      <module name="xing-spring(03.自动装配)" target="1.8" />
+      <module name="xing-spring(04.纯注解开发)" target="1.8" />
+      <module name="xing-spring(05.动态代理复习)" target="1.8" />
+      <module name="xing-spring(06.AOP_AspectJ)" target="1.8" />
+      <module name="xing-spring(06.AOP使用原生API)" target="1.8" />
+      <module name="xing-spring(07.整合mybatis)" target="1.8" />
+      <module name="xing-spring(08.整合mybtis02)" target="1.8" />
+      <module name="xing-spring(08.整合mybtis02+声明式事务)" target="1.8" />
+      <module name="xing-springmvc-01-servelet" target="1.8" />
+      <module name="xing-springmvc-02-helloSpringMVC" target="1.8" />
+      <module name="xing-springmvc-03-注解开发SpringMVC" target="1.8" />
+      <module name="xing-springmvc-04-controller" target="1.8" />
+      <module name="xing-springmvc-05json" target="1.8" />
+      <module name="xing-ssm(整合)" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+    <import resource="spring-dao.xml"></import>
+
+    <!--    注册Bean-->
+
+    <!--    在使用 SqlSessionDaoSupport 类获取sqlsession对象时 ，
+            在UserMapperImpl类里继承SqlSessionDaoSupport
+            只需要将SqlSessionFactory注入即可
+            -->
+    <bean id="userMapperImpl" class="com.xing.mapper.UserMapperImpl">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>
+</beans>

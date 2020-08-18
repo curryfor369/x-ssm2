@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?><!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd"><!--每个mapper的namespace对应一个Mapper接口-->
+<mapper namespace="com.xing.mapper.UserMapper">
+    <resultMap id="userMap" type="user">
+        <result property="age2" column="age"></result>
+    </resultMap>
+    <!-- 查一个-->
+    <select id="getOneById" resultMap="userMap">
+        select * from mybatis.user where id = #{id}
+    </select>
+
+    <!-- 分页查询 -->
+    <select id="getUsersByLimit" resultMap="userMap" parameterType="map">
+        select * from user limit #{startIndex},#{pageSize}
+    </select>
+</mapper>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd
+
+">
+
+    <import resource="beans.xml"></import>
+    <!--    配置aop 第一种方式-->
+    <!--    <aop:config>-->
+    <!--        <aop:pointcut id="poincut"-->
+    <!--            expression="execution(* com.xing.dao..*(..))" />-->
+    <!--        <aop:advisor advice-ref="log1" pointcut-ref="poincut"></aop:advisor>-->
+    <!--        <aop:advisor advice-ref="log2" pointcut-ref="poincut"></aop:advisor>-->
+    <!--    </aop:config>-->
+
+    <!--    第二种 推荐-->
+    <!--    <bean id="log3" class="com.xing.aop.Log3"></bean>-->
+    <!--    <aop:config>-->
+    <!--        <aop:aspect ref="log3">-->
+    <!--            <aop:pointcut id="pointcuct"-->
+    <!--                expression="execution(* com.xing.dao..*(..))" />-->
+    <!--            <aop:before method="before" pointcut-ref="pointcuct"></aop:before>-->
+    <!--            <aop:after method="after" pointcut-ref="pointcuct"></aop:after>-->
+    <!--        </aop:aspect>-->
+    <!--    </aop:config>-->
+
+
+    <!-- 第三种 注解   -->
+    <!--    开启注解支持-->
+    <aop:aspectj-autoproxy />
+    <bean id="log4" class="com.xing.aop.Log4"></bean>
+
+</beans>

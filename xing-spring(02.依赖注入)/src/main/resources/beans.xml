@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:c="http://www.springframework.org/schema/c"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+            Spring注入文档
+            https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#beans-collection-elements
+    -->
+    <bean id="s" class="com.xing.pojo.Student">
+        <!--        1. 基础类型用 value赋值-->
+        <property name="name" value="库里"></property>
+
+        <!--        2. 引用类型 对象-->
+        <property name="address" ref="address"></property>
+
+        <!--        3. 数组 array-->
+        <property name="books">
+            <array>
+                <value>抽烟</value>
+                <value>喝酒</value>
+                <value>烫头</value>
+            </array>
+        </property>
+
+        <!--        4. List集合 -->
+        <property name="hobbys">
+            <list>
+                <value>吃</value>
+                <value>喝</value>
+                <value>玩</value>
+                <value>乐</value>
+            </list>
+        </property>
+
+        <!--        5. Map集合 -->
+        <property name="card">
+            <map>
+                <entry key="ID" value="123"></entry>
+                <entry key="Name" value="于谦"></entry>
+                <entry key="Sex" value="男"></entry>
+            </map>
+        </property>
+
+        <!--        6. Set集合-->
+        <property name="games">
+            <set>
+                <value>王者</value>
+                <value>吃鸡</value>
+                <value>飞车</value>
+                <value>火线</value>
+            </set>
+        </property>
+
+        <!--        7. Null 空值-->
+        <property name="wife">
+            <null />
+        </property>
+
+        <!--        8. Properties-->
+        <property name="info">
+            <props>
+                <prop key="url">jdbc:mysql:...</prop>
+                <prop key="driver">jdbc:mysql:...</prop>
+                <prop key="username">jdbc:mysql:...</prop>
+                <prop key="password">jdbc:mysql:...</prop>
+            </props>
+        </property>
+    </bean>
+
+
+    <bean id="address" class="com.xing.pojo.Address">
+        <property name="address" value="金州"></property>
+    </bean>
+
+    <!--    c命名空间： 通过构造器注入-->
+    <bean id="address2" class="com.xing.pojo.Address" p:address="深圳"></bean>
+    <!--    p命名空间： 直接注入-->
+    <bean id="address3" class="com.xing.pojo.Address" c:address="广州"></bean>
+
+
+</beans>

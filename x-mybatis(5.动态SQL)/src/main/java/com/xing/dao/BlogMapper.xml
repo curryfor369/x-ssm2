@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?><!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xing.dao.BlogMapper">
+    <!--    插入：测试-->
+    <insert id="addBlog" parameterType="Blog">
+        insert into blog(id,title,author,create_time,views) values (#{id},#{title},#{author},#{createTime},#{views})
+    </insert>
+    <!--    根据条件查询 if where-->
+    <select id="getBlogList" resultType="Blog" parameterType="map">
+        select * from blog
+        <where>
+            <if test="title != null">
+                and title like "%" #{title} "%"
+            </if>
+            <if test="author != null">
+                and author like "%" #{author} "%"
+            </if>
+        </where>
+    </select>
+    <!--    根据条件查询 choose when otherwise-->
+    <select id="getBlogListChoose" resultType="Blog" parameterType="map">
+        select * from blog
+        <where>
+            <choose>
+                <when test="title != null">
+                    title = #{title}
+                </when>
+                <when test="title != null and author != null">
+                    and title = #{title} and author = #{author}
+                </when>
+                <otherwise>
+                    views > 600
+                </otherwise>
+            </choose>
+        </where>
+    </select>
+
+    <!--    更新 set-->
+    <update id="updateBlog" parameterType="map">
+        update blog
+        <set>
+            <include refid="if-1"></include>
+        </set>
+        where id = #{id}
+    </update>
+    <!--    sql片段-->
+    <sql id="if-1">
+        <if test="title != null">
+            title = #{title},
+        </if>
+        <if test="author != null">
+            author = #{author},
+        </if>
+        <if test="views != null">
+            views = #{views}
+        </if>
+    </sql>
+
+    <!--    查询： 通过 foreach拼接
+        select * from blog where views in ( 888,777);
+    -->
+    <select id="getBlogListForeach" parameterType="map" resultType="Blog">
+        select * from blog
+        <where>
+            <foreach collection="views" item="view" open="views in (" separator="," close=")">
+                #{view}
+            </foreach>
+        </where>
+
+    </select>
+</mapper>

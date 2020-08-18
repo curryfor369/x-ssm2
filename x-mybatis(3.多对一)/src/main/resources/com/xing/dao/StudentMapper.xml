@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?><!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xing.dao.StudentMapper">
+    <!--    第一种： 多对一 关联查询-->
+    <select id="getStudentList" resultMap="studentTeacher">
+        select
+            s.id sid,
+            s.name sname,
+            t.name tname
+        from
+            student s,
+            teacher t
+        where s.tid = t.id
+    </select>
+
+    <resultMap id="studentTeacher" type="Student">
+        <result property="id" column="sid"></result>
+        <result property="name" column="sname"></result>
+        <association property="teacher" javaType="Teacher">
+            <result property="name" column="tname"></result>
+        </association>
+    </resultMap>
+</mapper>

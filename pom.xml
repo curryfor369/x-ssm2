@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.xing</groupId>
+    <artifactId>x-ssm</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+<!--        <module>x-mybatis(0.入门案例)</module>-->
+<!--        <module>x-mybatis(1.属性设置)</module>-->
+<!--        <module>x-mybatis(2.注解开发)</module>-->
+<!--        <module>x-mybatis(3.多对一)</module>-->
+<!--        <module>x-mybatis(4.一对多)</module>-->
+<!--        <module>x-mybatis(5.动态SQL)</module>-->
+<!--        <module>x-mybatis(6.练习29)</module>-->
+<!--        <module>xing-spring(01.入门)</module>-->
+<!--        <module>xing-spring(02.依赖注入)</module>-->
+<!--        <module>xing-spring(03.自动装配)</module>-->
+<!--        <module>xing-spring(04.纯注解开发)</module>-->
+<!--        <module>xing-spring(05.动态代理复习)</module>-->
+<!--        <module>xing-spring(06.AOP_AspectJ)</module>-->
+<!--        <module>xing-spring(07.整合mybatis)</module>-->
+<!--        <module>xing-spring(08.整合mybtis02+声明式事务)</module>-->
+<!--        <module>xing-springmvc-01-servelet</module>-->
+<!--        <module>xing-springmvc-02-helloSpringMVC</module>-->
+<!--        <module>xing-springmvc-03-注解开发SpringMVC</module>-->
+<!--        <module>xing-springmvc-04-controller</module>-->
+<!--        <module>xing-springmvc-05json</module>-->
+<!--        <module>xing-ssm(整合)</module>-->
+    </modules>
+    <!--springmvc-->
+    <dependencies>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>5.2.5.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>2.2</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13</version>
+        </dependency>
+    </dependencies>
+
+
+    <!--在build中配置resources，来防止我们资源导出失败的问题-->
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+</project>
